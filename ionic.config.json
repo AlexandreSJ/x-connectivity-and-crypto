@@ -1,0 +1,7 @@
+{
+  "name": "x-connectivity-and-crypto",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
