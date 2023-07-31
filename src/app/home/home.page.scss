@@ -1,0 +1,13 @@
+ion-button {
+    width: 100%;
+}
+
+ion-title {
+    display: flex;
+    align-items: center;
+}
+
+
+.clickable, ion-button {
+    pointer-events: auto !important;
+}

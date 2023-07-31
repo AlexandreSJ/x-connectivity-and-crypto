@@ -1,0 +1,41 @@
+<ion-content [fullscreen]="true" class="ion-padding">
+
+  <div>
+
+    <ion-avatar>
+      <img alt="Logo" src="../../assets/icon/favicon.png" />
+    </ion-avatar>
+    <div>
+      <h1>X</h1>
+      <ion-note>Connectivity and Crypto</ion-note>
+    </div>
+
+  </div>
+
+  <hr>
+
+  <ion-button expand="block" id="log-in">Entrar</ion-button>
+  <ion-modal #modal trigger="log-in">
+
+    <ng-template>
+      <ion-content class="ion-padding">
+        <ion-toolbar>
+          <ion-title>Entrar</ion-title>
+          <ion-buttons slot="end">
+            <ion-button color="danger" (click)="modal.dismiss()"> <ion-icon name="arrow-back-outline"></ion-icon> </ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+
+        <form>
+          <div class="form">
+            <ion-input label="E-mail" labelPlacement="floating" fill="outline" type="email" placeholder="Digite seu email"></ion-input>
+            <ion-input label="Senha" labelPlacement="floating" fill="outline" type="password" placeholder="Digite sua senha"></ion-input>
+          </div>
+          <ion-button expand="block" href="/home">Entrar</ion-button>
+        </form>
+
+      </ion-content>
+    </ng-template>
+
+  </ion-modal>
+</ion-content>
