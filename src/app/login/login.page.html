@@ -14,15 +14,17 @@
 
   <hr>
 
-  <ion-button expand="block" id="log-in">Entrar</ion-button>
-  <ion-modal #modal trigger="log-in">
+  <ion-button color="light" expand="block" id="sign-in">Registrar</ion-button>
+  <ion-button color="primary" expand="block" id="log-in">Entrar</ion-button>
+  
+  <ion-modal #modal1 trigger="log-in" [initialBreakpoint]="1" [breakpoints]="[0, 1]">
 
     <ng-template>
       <ion-content class="ion-padding">
         <ion-toolbar>
           <ion-title>Entrar</ion-title>
           <ion-buttons slot="end">
-            <ion-button color="danger" (click)="modal.dismiss()"> <ion-icon name="arrow-back-outline"></ion-icon> </ion-button>
+            <ion-button color="danger" (click)="modal1.dismiss()"> <ion-icon name="arrow-down-outline"></ion-icon> </ion-button>
           </ion-buttons>
         </ion-toolbar>
 
@@ -31,7 +33,32 @@
             <ion-input label="E-mail" labelPlacement="floating" fill="outline" type="email" placeholder="Digite seu email"></ion-input>
             <ion-input label="Senha" labelPlacement="floating" fill="outline" type="password" placeholder="Digite sua senha"></ion-input>
           </div>
-          <ion-button expand="block" href="/home">Entrar</ion-button>
+          <ion-button expand="block" (click)="modal1.dismiss()" [routerLink]="['/home']">Entrar</ion-button>
+        </form>
+
+      </ion-content>
+    </ng-template>
+
+  </ion-modal>
+  <ion-modal #modal2 trigger="sign-in" [initialBreakpoint]="1" [breakpoints]="[0, 1]">
+
+    <ng-template>
+      <ion-content class="ion-padding">
+        <ion-toolbar>
+          <ion-title>Entrar</ion-title>
+          <ion-buttons slot="end">
+            <ion-button color="danger" (click)="modal2.dismiss()"> <ion-icon name="arrow-down-outline"></ion-icon> </ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+
+        <form>
+          <div class="form">
+            <ion-input label="CPF/CNPJ" labelPlacement="floating" fill="outline" type="cpf" placeholder="Digite seu CPF ou CNPJ"></ion-input>
+            <ion-input label="E-mail" labelPlacement="floating" fill="outline" type="email" placeholder="Digite seu email"></ion-input>
+            <ion-input label="Senha" labelPlacement="floating" fill="outline" type="password" placeholder="Digite sua senha"></ion-input>
+            <ion-input label="Senha" labelPlacement="floating" fill="outline" type="password" placeholder="Confirme sua senha"></ion-input>
+          </div>
+          <ion-button expand="block" (click)="modal2.dismiss()">Registrar</ion-button>
         </form>
 
       </ion-content>

@@ -2,7 +2,7 @@
   
   <ion-header> 
     <ion-menu-toggle class="clickable">
-      <ion-button fill="clear" expand="block" color="danger"> <ion-icon name="arrow-back-outline"></ion-icon> </ion-button>
+      <ion-title>MENU</ion-title>
     </ion-menu-toggle>
   </ion-header>
   
@@ -15,7 +15,7 @@
       <ion-button >Sobre o aplicativo</ion-button>
       <ion-button >Taxa de Câmbio</ion-button>
     </ion-list>
-    <ion-button color="danger" href="/login">Sair</ion-button>
+    <ion-button color="danger" [routerLink]="['/login']">Sair</ion-button>
 
   </ion-content>
 </ion-menu>
