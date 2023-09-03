@@ -16,7 +16,7 @@
 
   <ion-button color="light" expand="block" id="sign-in">Registrar</ion-button>
   <ion-button color="primary" expand="block" id="log-in">Entrar</ion-button>
-  
+
   <ion-modal #modal1 trigger="log-in" [initialBreakpoint]="1" [breakpoints]="[0, 1]">
 
     <ng-template>
@@ -53,7 +53,7 @@
 
         <form>
           <div class="form">
-            <ion-input label="CPF/CNPJ" labelPlacement="floating" fill="outline" type="cpf" placeholder="Digite seu CPF ou CNPJ"></ion-input>
+            <ion-input label="CPF/CNPJ" [(ngModel)]="cpf_cnpj" (keydown)="cpf_cnpj = format(cpf_cnpj)" name="cpf_cnpj" labelPlacement="floating" fill="outline" type="cpf" placeholder="Digite seu CPF ou CNPJ"></ion-input>
             <ion-input label="E-mail" labelPlacement="floating" fill="outline" type="email" placeholder="Digite seu email"></ion-input>
             <ion-input label="Senha" labelPlacement="floating" fill="outline" type="password" placeholder="Digite sua senha"></ion-input>
             <ion-input label="Senha" labelPlacement="floating" fill="outline" type="password" placeholder="Confirme sua senha"></ion-input>
