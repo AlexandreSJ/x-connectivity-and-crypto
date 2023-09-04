@@ -5,11 +5,12 @@
     <ion-avatar>
       <img alt="Logo" src="../../assets/icon/favicon.png" />
     </ion-avatar>
-    <div>
-      <h1>X</h1>
-      <ion-note>Connectivity and Crypto</ion-note>
-    </div>
 
+  </div>
+
+  <div>
+    <h1>X</h1>
+    <ion-note>Connectivity and Crypto</ion-note>
   </div>
 
   <hr>
@@ -45,7 +46,7 @@
     <ng-template>
       <ion-content class="ion-padding">
         <ion-toolbar>
-          <ion-title>Entrar</ion-title>
+          <ion-title>Registrar</ion-title>
           <ion-buttons slot="end">
             <ion-button color="danger" (click)="modal2.dismiss()"> <ion-icon name="arrow-down-outline"></ion-icon> </ion-button>
           </ion-buttons>
@@ -53,12 +54,12 @@
 
         <form>
           <div class="form">
-            <ion-input label="CPF/CNPJ" maxlength="18" [(ngModel)]="cpf_cnpj" (keydown)="cpf_cnpj = format(cpf_cnpj)" (keyup)="cpf_cnpj = format(cpf_cnpj)" name="cpf_cnpj" labelPlacement="floating" fill="outline" type="cpf" placeholder="Digite seu CPF ou CNPJ"></ion-input>
+            <ion-input label="CPF/CNPJ" maxlength="18" [(ngModel)]="cpf_cnpj" (input)="cpf_cnpj = format(cpf_cnpj)" name="cpf_cnpj" labelPlacement="floating" fill="outline" type="cpf" placeholder="Digite seu CPF ou CNPJ"></ion-input>
             <ion-input label="E-mail" labelPlacement="floating" fill="outline" type="email" placeholder="Digite seu email"></ion-input>
             <ion-input label="Senha" labelPlacement="floating" fill="outline" type="password" placeholder="Digite sua senha"></ion-input>
             <ion-input label="Senha" labelPlacement="floating" fill="outline" type="password" placeholder="Confirme sua senha"></ion-input>
           </div>
-          <ion-button expand="block" (click)="modal2.dismiss(); register()">Registrar</ion-button>
+          <ion-button id="open-loading" expand="block" (click)="modal2.dismiss(); startRegister()">Registrar</ion-button>
         </form>
 
       </ion-content>

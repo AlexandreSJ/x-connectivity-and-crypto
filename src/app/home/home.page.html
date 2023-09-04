@@ -2,30 +2,37 @@
   <hr>
 
   <ion-content class="ion-padding">
-
+    
     <ion-menu-toggle class="clickable">
       <ion-list>
-        <ion-button id="trade-modal">
-          <ion-icon name="swap-horizontal-outline"></ion-icon>
-          Taxa de Câmbio</ion-button>
-        <ion-button >
-          <ion-icon name="accessibility-outline"></ion-icon>
-          Suporte ao cliente</ion-button>
-        <ion-button>
-          <ion-icon name="information-circle-outline"></ion-icon>
-          Sobre a empresa</ion-button>
-        <ion-button>
-          <ion-icon name="help-circle-outline"></ion-icon>
-          Sobre o aplicativo</ion-button>
-        <ion-button>
-          <ion-icon name="cog-outline"></ion-icon>
-          Configurações</ion-button>
-          <hr>
-          <ion-button color="danger" [routerLink]="['/login']">
-            <ion-icon name="log-out-outline"></ion-icon>
-            Sair</ion-button>
+        <ion-button id="trade-modal"> 
+          <ion-icon name="swap-horizontal-outline" slot="start"></ion-icon> 
+          Taxa de Câmbio
+        </ion-button>
+        <ion-button > 
+          <ion-icon name="accessibility-outline" slot="start"></ion-icon> 
+          Suporte ao cliente
+        </ion-button>
+        <ion-button> 
+          <ion-icon name="information-circle-outline" slot="start"></ion-icon> 
+          Sobre a empresa
+        </ion-button>
+        <ion-button> 
+          <ion-icon name="help-circle-outline" slot="start"></ion-icon>
+          Sobre o aplicativo
+        </ion-button>
+        <ion-button> 
+          <ion-icon name="cog-outline" slot="start"></ion-icon> 
+          Configurações
+        </ion-button>
+        <hr>
+        <ion-button color="danger" [routerLink]="['/login']"> 
+          <ion-icon name="log-out-outline"></ion-icon> 
+          Sair
+        </ion-button>
       </ion-list>
     </ion-menu-toggle>
+    
   </ion-content>
 
 </ion-menu>
@@ -92,7 +99,6 @@
             <ion-button class="clickable" (click)="swapInput()" ><ion-icon name="swap-vertical-outline"></ion-icon></ion-button>
             <ion-input [(ngModel)]="conCoin" (input)="coin = setCoin(conCoin); conCoin = formatConCoin(conCoin)"  name="conCoin" id="moeda-con" label="Conectividade" labelPlacement="floating" fill="outline" type="text" placeholder="Digite um valor em Conectividade" disabled="true"></ion-input>
           </div>
-          <ion-button expand="block" (click)="trade.dismiss()" [routerLink]="['/home']">Entrar</ion-button>
         </form>
 
       </ion-content>

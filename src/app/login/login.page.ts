@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoadingController } from '@ionic/angular';
 import Swal from 'sweetalert2';
 //import Swal from 'sweetalert2';
 
@@ -16,18 +17,34 @@ export class LoginPage implements OnInit {
   val: any;
   v: any;
 
-  constructor() {}
+  constructor(private loadingCtrl: LoadingController) {}
 
   ngOnInit(): void {}
 
-  register() {
-    Swal.fire({
-      heightAuto: false,
-      icon: 'success',
-      title: 'Registrado com sucesso!',
-      showConfirmButton: false,
-      timer: 2500
-    })
+  async startRegister() {
+    const timeToWait = 1300;
+    const loading = await this.loadingCtrl.create({
+      message: 'Registrando...',
+      duration: timeToWait,
+    });
+
+    loading.present();
+    setTimeout(() => { 
+      Swal.fire({
+        heightAuto: false,
+        icon: 'success',
+        title: 'Registrado com sucesso!',
+        showConfirmButton: false,
+        timer: 2200,
+        allowOutsideClick: false
+      }).then((result)=>{
+        console.log('I was closed by the timer')
+      }) 
+    }, timeToWait);
+  }
+
+  finishRegister() {
+    
   }
 
   format(valString: string) {
