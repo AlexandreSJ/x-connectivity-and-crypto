@@ -40,8 +40,6 @@
   <ion-header>
     <ion-toolbar>
 
-
-
       <ion-title>
         <ion-item>
           <ion-avatar slot="start" class="logo">
@@ -95,9 +93,9 @@
 
         <form>
           <div class="form" id="swap-input">
-            <ion-input [(ngModel)]="coin" (input)="conCoin = setConCoin(coin); coin = formatCoin(coin)"  name="coin" id="moeda" label="Real" labelPlacement="floating" fill="outline" type="number"></ion-input>
+            <ion-input [(ngModel)]="coin" (input)="conCoin = setConCoin(coin); coin = formatCoin(coin)"  name="coin" id="moeda" label="Real" labelPlacement="floating" fill="outline" type="text"></ion-input>
             <ion-button class="clickable" (click)="swapInput()" ><ion-icon name="swap-vertical-outline"></ion-icon></ion-button>
-            <ion-input [(ngModel)]="conCoin" (input)="coin = setCoin(conCoin); conCoin = formatConCoin(conCoin)"  name="conCoin" id="moeda-con" label="Conectividade" labelPlacement="floating" fill="outline" type="number" disabled="true"></ion-input>
+            <ion-input [(ngModel)]="conCoin" (input)="coin = setCoin(conCoin); conCoin = formatConCoin(conCoin)"  name="conCoin" id="moeda-con" label="Conectividade" labelPlacement="floating" fill="outline" type="text" disabled="true"></ion-input>
           </div>
         </form>
 
