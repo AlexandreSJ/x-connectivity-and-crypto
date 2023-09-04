@@ -53,12 +53,12 @@
 
         <form>
           <div class="form">
-            <ion-input label="CPF/CNPJ" [(ngModel)]="cpf_cnpj" (keydown)="cpf_cnpj = format(cpf_cnpj)" name="cpf_cnpj" labelPlacement="floating" fill="outline" type="cpf" placeholder="Digite seu CPF ou CNPJ"></ion-input>
+            <ion-input label="CPF/CNPJ" maxlength="18" [(ngModel)]="cpf_cnpj" (keydown)="cpf_cnpj = format(cpf_cnpj)" (keyup)="cpf_cnpj = format(cpf_cnpj)" name="cpf_cnpj" labelPlacement="floating" fill="outline" type="cpf" placeholder="Digite seu CPF ou CNPJ"></ion-input>
             <ion-input label="E-mail" labelPlacement="floating" fill="outline" type="email" placeholder="Digite seu email"></ion-input>
             <ion-input label="Senha" labelPlacement="floating" fill="outline" type="password" placeholder="Digite sua senha"></ion-input>
             <ion-input label="Senha" labelPlacement="floating" fill="outline" type="password" placeholder="Confirme sua senha"></ion-input>
           </div>
-          <ion-button expand="block" (click)="modal2.dismiss()">Registrar</ion-button>
+          <ion-button expand="block" (click)="modal2.dismiss(); register()">Registrar</ion-button>
         </form>
 
       </ion-content>

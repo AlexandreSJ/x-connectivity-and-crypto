@@ -76,3 +76,7 @@
   --ion-color-light-tint: #f5f6f9;
 
 }
+
+.sc-ion-input-md-h {
+  --highlight-color: var(--ion-color-primary) !important;
+}

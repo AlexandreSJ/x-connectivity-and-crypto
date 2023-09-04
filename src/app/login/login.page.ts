@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import Swal from 'sweetalert2';
 //import Swal from 'sweetalert2';
 
 @Component({
@@ -19,6 +20,16 @@ export class LoginPage implements OnInit {
 
   ngOnInit(): void {}
 
+  register() {
+    Swal.fire({
+      heightAuto: false,
+      icon: 'success',
+      title: 'Registrado com sucesso!',
+      showConfirmButton: false,
+      timer: 2500
+    })
+  }
+
   format(valString: string) {
     if (!valString) {
       return '';
@@ -30,7 +41,7 @@ export class LoginPage implements OnInit {
       this.maskedId = this.cpf_mask(parts[0]);
       return this.maskedId;
     } else {
-      if (parts[0].length >= 14) {
+      if (parts[0].length >= 15) {
         return this.maskedId;
       }
 
