@@ -1,39 +1,39 @@
 <ion-menu side="end" contentId="main-content">
   <hr>
-  
+
   <ion-content class="ion-padding">
-    
+
     <ion-menu-toggle class="clickable">
       <ion-list>
-        <ion-button id="trade-modal"> 
-          <ion-icon name="swap-horizontal-outline"></ion-icon> 
+        <ion-button id="trade-modal">
+          <ion-icon name="swap-horizontal-outline"></ion-icon>
           Taxa de Câmbio</ion-button>
-        <ion-button > 
-          <ion-icon name="accessibility-outline"></ion-icon> 
+        <ion-button >
+          <ion-icon name="accessibility-outline"></ion-icon>
           Suporte ao cliente</ion-button>
-        <ion-button> 
-          <ion-icon name="information-circle-outline"></ion-icon> 
+        <ion-button>
+          <ion-icon name="information-circle-outline"></ion-icon>
           Sobre a empresa</ion-button>
-        <ion-button> 
+        <ion-button>
           <ion-icon name="help-circle-outline"></ion-icon>
           Sobre o aplicativo</ion-button>
-        <ion-button> 
-          <ion-icon name="cog-outline"></ion-icon> 
+        <ion-button>
+          <ion-icon name="cog-outline"></ion-icon>
           Configurações</ion-button>
           <hr>
-          <ion-button color="danger" [routerLink]="['/login']"> 
-            <ion-icon name="log-out-outline"></ion-icon> 
+          <ion-button color="danger" [routerLink]="['/login']">
+            <ion-icon name="log-out-outline"></ion-icon>
             Sair</ion-button>
       </ion-list>
     </ion-menu-toggle>
   </ion-content>
-    
+
 </ion-menu>
 <div class="ion-page" id="main-content">
   <ion-header>
     <ion-toolbar>
 
-      
+
 
       <ion-title>
         <ion-item>
@@ -43,7 +43,7 @@
           <ion-label>Boas vindas à X</ion-label>
         </ion-item>
       </ion-title>
-      
+
       <ion-buttons slot="end">
         <ion-menu-button></ion-menu-button>
       </ion-buttons>
@@ -51,9 +51,9 @@
     </ion-toolbar>
   </ion-header>
   <ion-content class="ion-padding">
-    
+
     <ion-item>
-      
+
       <ion-avatar slot="start">
         <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
       </ion-avatar>
@@ -65,14 +65,14 @@
       <ion-card-header>
         <ion-card-title>Seu saldo</ion-card-title>
       </ion-card-header>
-      
+
       <ion-card-content>
         <ion-card-subtitle color="">R$ 10 000,00</ion-card-subtitle>
         Clique aqui para mais opções
       </ion-card-content>
       <ion-progress-bar type="indeterminate" color="primary"></ion-progress-bar>
     </ion-card>
-  
+
   </ion-content>
 
   <ion-modal #trade trigger="trade-modal">
@@ -88,9 +88,9 @@
 
         <form>
           <div class="form" id="swap-input">
-            <ion-input id="moeda" label="Real" labelPlacement="floating" fill="outline" type="email" placeholder="Digite um valor em R$"></ion-input>
+            <ion-input [(ngModel)]="coin" (input)="conCoin = setConCoin(coin); coin = formatCoin(coin)"  name="coin" id="moeda" label="Real" labelPlacement="floating" fill="outline" type="text" placeholder="Digite um valor em R$"></ion-input>
             <ion-button class="clickable" (click)="swapInput()" ><ion-icon name="swap-vertical-outline"></ion-icon></ion-button>
-            <ion-input id="moeda-con" label="Conectividade" labelPlacement="floating" fill="outline" type="password" placeholder="Digite um valor em Conectividade" disabled></ion-input>
+            <ion-input [(ngModel)]="conCoin" (input)="coin = setCoin(conCoin); conCoin = formatConCoin(conCoin)"  name="conCoin" id="moeda-con" label="Conectividade" labelPlacement="floating" fill="outline" type="text" placeholder="Digite um valor em Conectividade" disabled="true"></ion-input>
           </div>
           <ion-button expand="block" (click)="trade.dismiss()" [routerLink]="['/home']">Entrar</ion-button>
         </form>
@@ -99,4 +99,4 @@
     </ng-template>
 
   </ion-modal>
-</div>    
+</div>
