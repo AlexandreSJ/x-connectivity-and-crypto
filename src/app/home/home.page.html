@@ -36,18 +36,18 @@
   </ion-content>
 
 </ion-menu>
+
 <div class="ion-page" id="main-content">
   <ion-header>
     <ion-toolbar>
+      
+      <div slot="start">
+        <ion-avatar>
+          <img alt="Logo" class="menu-logo" src="../../assets/icon/favicon.png" />
+        </ion-avatar>
+      </div>
 
-      <ion-title>
-        <ion-item>
-          <ion-avatar slot="start" class="logo">
-            <img alt="Logo" src="../../assets/icon/favicon.png" />
-          </ion-avatar>
-          <ion-label>Boas vindas à X</ion-label>
-        </ion-item>
-      </ion-title>
+      X - Connvectivity & Crypto
 
       <ion-buttons slot="end">
         <ion-menu-button></ion-menu-button>
@@ -55,6 +55,7 @@
 
     </ion-toolbar>
   </ion-header>
+
   <ion-content class="ion-padding">
 
     <ion-item>
@@ -68,15 +69,31 @@
 
     <ion-card>
       <ion-card-header>
-        <ion-card-title>Seu saldo</ion-card-title>
+        <ion-card-title>Saldo em Real</ion-card-title>
       </ion-card-header>
 
       <ion-card-content>
-        <ion-card-subtitle color="">R$ 10 000,00</ion-card-subtitle>
+        <ion-card-subtitle color="">R$ 3 000,00</ion-card-subtitle>
         Clique aqui para mais opções
       </ion-card-content>
-      <ion-progress-bar type="indeterminate" color="primary"></ion-progress-bar>
     </ion-card>
+
+    <ion-card color="dark">
+      <ion-card-header>
+        <ion-card-title>Saldo em Conectividade</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-card-subtitle color="">X$ 500,00</ion-card-subtitle>
+        Clique aqui para mais opções
+      </ion-card-content>
+    </ion-card>
+    
+    <hr style="background: gray">
+    
+    <div style="display: flex; justify-content: center;">
+      <ion-spinner name="dots"></ion-spinner>
+    </div>
 
   </ion-content>
 
@@ -91,12 +108,16 @@
           </ion-buttons>
         </ion-toolbar>
 
-        <form>
+        <ion-badge>(NOW) Exchange: X$ 1,00 = R$ {{exchangeVal.toFixed(2).replace(".", ",")}}</ion-badge>
+
+        <form (submit)="trade.dismiss()">
           <div class="form" id="swap-input">
             <ion-input [(ngModel)]="coin" (input)="conCoin = setConCoin(coin); coin = formatCoin(coin)"  name="coin" id="moeda" label="Real" labelPlacement="floating" fill="outline" type="text"></ion-input>
             <ion-button class="clickable" (click)="swapInput()" ><ion-icon name="swap-vertical-outline"></ion-icon></ion-button>
             <ion-input [(ngModel)]="conCoin" (input)="coin = setCoin(conCoin); conCoin = formatConCoin(conCoin)"  name="conCoin" id="moeda-con" label="Conectividade" labelPlacement="floating" fill="outline" type="text" disabled="true"></ion-input>
           </div>
+          
+          <ion-button type="submit">Confirmar</ion-button>
         </form>
 
       </ion-content>

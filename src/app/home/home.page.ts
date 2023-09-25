@@ -9,14 +9,15 @@ export class HomePage implements OnInit {
   constructor() {}
   coin = 'R$ 0,00';
   conCoin = 'X$ 0,00';
+  exchangeVal = 2;
 
   ngOnInit() {}
 
   setCoin(value: string) {
     value = value.replace(/\D/g, ''); //Remove tudo o que não é dígito
-    const num = Number(value) / 100;
+    const num = Number(value);
 
-    value = `R$ ${(num / 2).toFixed(2)}`;
+    value = `R$ ${(Math.floor(num * this.exchangeVal) / 100).toFixed(2)}`;
 
     value = value.replace('.', ',');
 
@@ -36,9 +37,9 @@ export class HomePage implements OnInit {
 
   setConCoin(value: string) {
     value = value.replace(/\D/g, ''); //Remove tudo o que não é dígito
-    const num = Number(value) / 100;
+    const num = Number(value);
 
-    value = `X$ ${(num * 2).toFixed(2)}`;
+    value = `X$ ${(Math.floor(num / this.exchangeVal) / 100).toFixed(2)}`;
 
     value = value.replace('.', ',');
     return value;
