@@ -41,8 +41,8 @@ export class HomePage implements OnInit {
   real = new Coin('R$', 0.5);
   xCoin = new Coin('X$', 2);
 
-  inputReal = 'R$ 0,00';
-  inputXCoin = 'X$ 0,00';
+  inputReal = this.real.format('0');
+  inputXCoin = this.xCoin.format('0');
 
   constructor() {}
 
