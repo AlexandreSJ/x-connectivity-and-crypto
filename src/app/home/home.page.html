@@ -110,15 +110,15 @@
       </ion-header>
       <ion-content class="ion-padding">
         <ion-badge>
-          Taxa de Câmbio: X$ 1,00 = R$ {{exchangeVal.toFixed(2).replace(".", ",")}}
+          Taxa de Câmbio: X$ 1,00 = R$ 2,00
         </ion-badge>
 
         <form (submit)="trade.dismiss()">
 
           <div class="form" id="swap-input">
-            <ion-input [(ngModel)]="coin" (input)="conCoin = setConCoin(coin); coin = formatCoin(coin)"  name="coin" id="moeda" label="Real" labelPlacement="floating" fill="outline" type="text"></ion-input>
+            <ion-input [(ngModel)]="inputReal" (input)="onInputReal(inputReal)"  name="inputReal" id="moeda" label="Real" labelPlacement="floating" fill="outline" type="text"></ion-input>
             <ion-button class="clickable" (click)="swapInput()" ><ion-icon name="swap-vertical-outline"></ion-icon></ion-button>
-            <ion-input [(ngModel)]="conCoin" (input)="coin = setCoin(conCoin); conCoin = formatConCoin(conCoin)"  name="conCoin" id="moeda-con" label="Conectividade" labelPlacement="floating" fill="outline" type="text" disabled="true"></ion-input>
+            <ion-input [(ngModel)]="inputXCoin" (input)="onInputXCoin(inputXCoin)"  name="inputXCoin" id="moeda-con" label="Conectividade" labelPlacement="floating" fill="outline" type="text" disabled="true"></ion-input>
           </div>
 
           <ion-button type="submit">Confirmar</ion-button>

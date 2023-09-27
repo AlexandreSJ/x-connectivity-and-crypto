@@ -1,58 +1,61 @@
 import { Component, OnInit } from '@angular/core';
 
+class Coin {
+  private prefix: string;
+  private exchange: number;
+
+  constructor(prefix: string, exchange: number) {
+    this.prefix = prefix;
+    this.exchange = exchange;
+  }
+
+  private convertToNumber(value: string): number {
+    return Number(value.replace(/\D/g, ''));
+  }
+
+  private getNumberExchange(value: number): number {
+    return Math.floor(value * this.exchange);
+  }
+
+  private getStringResult(value: number): string {
+    return `${this.prefix} ${value.toFixed(2)}`.replace('.', ',');
+  }
+
+  getExchange(value: string): string {
+    return this.getStringResult(
+      this.getNumberExchange(this.convertToNumber(value)) / 100
+    );
+  }
+
+  format(value: string): string {
+    return this.getStringResult(this.convertToNumber(value) / 100);
+  }
+}
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
+  real = new Coin('R$', 0.5);
+  xCoin = new Coin('X$', 2);
+
+  inputReal = this.real.format('0');
+  inputXCoin = this.xCoin.format('0');
+
   constructor() {}
-  coin = 'R$ 0,00';
-  conCoin = 'X$ 0,00';
-  exchangeVal = 2;
 
   ngOnInit() {}
 
-  setCoin(value: string) {
-    value = value.replace(/\D/g, ''); //Remove tudo o que não é dígito
-    const num = Number(value);
-
-    value = `R$ ${(Math.floor(num * this.exchangeVal) / 100).toFixed(2)}`;
-
-    value = value.replace('.', ',');
-
-    return value;
+  onInputReal(value: string) {
+    this.inputXCoin = this.xCoin.getExchange(value);
+    this.inputReal = this.real.format(value);
   }
 
-  formatCoin(value: string) {
-    value = value.replace(/\D/g, ''); //Remove tudo o que não é dígito
-    const num = Number(value) / 100;
-
-    value = `R$ ${num.toFixed(2)}`;
-
-    value = value.replace('.', ',');
-
-    return value;
-  }
-
-  setConCoin(value: string) {
-    value = value.replace(/\D/g, ''); //Remove tudo o que não é dígito
-    const num = Number(value);
-
-    value = `X$ ${(Math.floor(num / this.exchangeVal) / 100).toFixed(2)}`;
-
-    value = value.replace('.', ',');
-    return value;
-  }
-
-  formatConCoin(value: string) {
-    value = value.replace(/\D/g, ''); //Remove tudo o que não é dígito
-    const num = Number(value) / 100;
-
-    value = `X$ ${num.toFixed(2)}`;
-
-    value = value.replace('.', ',');
-    return value;
+  onInputXCoin(value: string) {
+    this.inputReal = this.real.getExchange(value);
+    this.inputXCoin = this.xCoin.format(value);
   }
 
   swapInput() {
