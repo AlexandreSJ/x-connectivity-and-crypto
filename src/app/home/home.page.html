@@ -116,7 +116,7 @@
         <form (submit)="trade.dismiss()">
 
           <div class="form" id="swap-input">
-            <ion-input [(ngModel)]="inputCoin" (input)="onInputReal(inputCoin)"  name="inputCoin" id="moeda" label="Real" labelPlacement="floating" fill="outline" type="text"></ion-input>
+            <ion-input [(ngModel)]="inputReal" (input)="onInputReal(inputReal)"  name="inputReal" id="moeda" label="Real" labelPlacement="floating" fill="outline" type="text"></ion-input>
             <ion-button class="clickable" (click)="swapInput()" ><ion-icon name="swap-vertical-outline"></ion-icon></ion-button>
             <ion-input [(ngModel)]="inputXCoin" (input)="onInputXCoin(inputXCoin)"  name="inputXCoin" id="moeda-con" label="Conectividade" labelPlacement="floating" fill="outline" type="text" disabled="true"></ion-input>
           </div>

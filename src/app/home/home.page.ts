@@ -41,7 +41,7 @@ export class HomePage implements OnInit {
   real = new Coin('R$', 0.5);
   xCoin = new Coin('X$', 2);
 
-  inputCoin = 'R$ 0,00';
+  inputReal = 'R$ 0,00';
   inputXCoin = 'X$ 0,00';
 
   constructor() {}
@@ -50,11 +50,11 @@ export class HomePage implements OnInit {
 
   onInputReal(value: string) {
     this.inputXCoin = this.xCoin.getExchange(value);
-    this.inputCoin = this.real.format(value);
+    this.inputReal = this.real.format(value);
   }
 
   onInputXCoin(value: string) {
-    this.inputCoin = this.real.getExchange(value);
+    this.inputReal = this.real.getExchange(value);
     this.inputXCoin = this.xCoin.format(value);
   }
 
